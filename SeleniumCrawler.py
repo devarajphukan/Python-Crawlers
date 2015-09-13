@@ -5,12 +5,12 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
-fo = open("home2","r")
+fo = open("websiteLinks","r")
 fw = open("data.txt","a")
 
 driver = webdriver.Firefox()
-timer = 1
-for x in fo :
+timer = 10
+for y in fo :
 	
 	time.sleep(5)
 	

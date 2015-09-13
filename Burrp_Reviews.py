@@ -42,4 +42,4 @@ for i in range(10000):
 	fw.write(ttl)
 	fw.write(rvw)
 	fw.write(k)
-	fw.write("\n")
+	fw.write("\n\n")

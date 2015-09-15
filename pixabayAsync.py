@@ -1,7 +1,6 @@
 #!/usr/bin/python
 import aiohttp
 import asyncio
-import threading
 from bs4 import BeautifulSoup
 
 def get(*a, **k):

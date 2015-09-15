@@ -24,17 +24,17 @@ def spider(page):
 
 	return info
 
-def print_link_tags(query):	
+def print_link_tags(page_num):	
 	
-	url = "https://pixabay.com/en/photos/?&pagi={}".format(query)
+	url = "https://pixabay.com/en/photos/?&pagi={}".format(page_num)
 	with (yield from sem):
 		page = yield from get(url, compress=True)
 	links = spider(page)
 	
 	for i in range(len(links)):
-		print('{}: {} {}'.format(query, links[i][0],links[i][1]))
+		print('{}: {} {}'.format(page_num, links[i][0],links[i][1]))
 
 sem = asyncio.Semaphore(10)
 loop = asyncio.get_event_loop()
-f = asyncio.wait([print_link_tags(d) for d in range(1,4076)])
+f = asyncio.wait([print_link_tags(d) for d in range(1,4100)])
 loop.run_until_complete(f)

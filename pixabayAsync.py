@@ -24,7 +24,7 @@ def spider(page):
 
 	return info
 
-def print_title(query):	
+def print_link_tags(query):	
 	
 	url = "https://pixabay.com/en/photos/?&pagi={}".format(query)
 	with (yield from sem):
@@ -36,5 +36,5 @@ def print_title(query):
 
 sem = asyncio.Semaphore(10)
 loop = asyncio.get_event_loop()
-f = asyncio.wait([print_title(d) for d in range(1,4076)])
+f = asyncio.wait([print_link_tags(d) for d in range(1,4076)])
 loop.run_until_complete(f)

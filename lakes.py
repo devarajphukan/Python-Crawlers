@@ -3,7 +3,7 @@ import pymongo
 import requests
 from bs4 import BeautifulSoup
 
-client=pymongo.MongoClient("192.168.101.5")
+client=pymongo.MongoClient("192.168.103.53")
 db=client.kbnew
 lakes=db.lakes
 

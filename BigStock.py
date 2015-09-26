@@ -55,7 +55,7 @@ def spider(i) :
 T=threading.Thread		
 
 for j in range(1,1000000) :
-	while threading.active_count()>2:
+	while threading.active_count()>20:
 		continue
 	t=T(target=spider,args=(j,))
 	t.start()

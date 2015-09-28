@@ -1,4 +1,4 @@
-import requests
+import urllib2
 from bs4 import BeautifulSoup
 import pymongo
 import time
@@ -9,10 +9,10 @@ posts=db.posts
 authors = db.authors
 		
 for page_num in range(1,265) :
-
+	
 	main_url = "http://yourstory.com/ys-stories/page/"+str(page_num)+"/"
-	html = requests.get(main_url)
-	plain = html.text 
+	req = urllib2.Request(main_url, headers={ 'User-Agent': 'Mozilla/5.0' })
+	plain = urllib2.urlopen(req).read()
 
 	soup = BeautifulSoup(plain,"lxml")
 	#ul = soup.find("ul",{"class":"gridPostsList gridPostsList-fullWidthBlock"})
@@ -29,8 +29,8 @@ for page_num in range(1,265) :
 
 	for url in url_list :
 
-		a = requests.get(url)
-		b = a.text
+		a = urllib2.Request(url, headers={ 'User-Agent': 'Mozilla/5.0' })
+		b = urllib2.urlopen(a).read()
 		soup = BeautifulSoup(b,"lxml")
 		
 		main_dict={}

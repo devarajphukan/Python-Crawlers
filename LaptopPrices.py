@@ -4,9 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 
 def spider(i):
-
-	url = "http://www.flipkart.com/lc/pr/pv1/spotList1/spot1/productList?sid=6bo%2Cb5g&filterNone=true&start=" + str(i) + "&ajax=true&_=1442149456627"
-
+	url = "http://www.flipkart.com/lc/pr/pv1/spotList1/spot1/productList?sid=6bo%2Cb5g&pincode=560036&filterNone=true&start="+str(i)+"&ajax=true&_=1456672233883"
 	html_text = requests.get(url)
 
 	plain_text = html_text.text
@@ -30,11 +28,11 @@ def spider(i):
 
 T=threading.Thread		
 
-for n in range(1,1000,20):
+for n in range(1,100000):
 	
-	while threading.active_count()>20:
+	while threading.active_count()>2:
 		
 		continue
 	
 	t=T(target=spider,args=(n,))
-	t.start()			
+	t.start()
